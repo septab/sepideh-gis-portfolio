@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sepideh Barzegar – GIS & Geo-Data Specialist</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Portfolio of Sepideh Barzegar – GIS & Geo-Data Specialist based in Sweden. Spatial data analysis, mapping, and urban research." />
+
+  <!-- Google Font (optional) -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #050810;
+      --bg-elevated: #0e1420;
+      --accent: #66e0ff;
+      --accent-soft: rgba(102, 224, 255, 0.12);
+      --accent-strong: rgba(102, 224, 255, 0.35);
+      --text: #f7f7ff;
+      --muted: #a9b0c7;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --card-radius: 18px;
+      --transition-fast: 0.18s ease-out;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.6);
+      --shadow-subtle: 0 10px 28px rgba(0, 0, 0, 0.4);
+      --max-width: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top left, #111827 0, #020617 40%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    main {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 24px 16px 56px;
+    }
+
+    /* Header / Nav */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(20px);
+      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.9), rgba(2, 6, 23, 0.65), transparent);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .avatar {
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      overflow: hidden;
+      background: radial-gradient(circle at 0 0, #1f2937, #020617);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-text span:first-child {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .brand-text span:last-child {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+    }
+
+    .nav-links a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      color: var(--muted);
+      border: 1px solid transparent;
+      transition: color var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      border-color: rgba(148, 163, 184, 0.3);
+      background: rgba(15, 23, 42, 0.9);
+      transform: translateY(-1px);
+    }
+
+    .nav-links a.primary-link {
+      color: var(--bg);
+      background: var(--accent);
+      border-color: transparent;
+      font-weight: 600;
+      box-shadow: 0 0 25px rgba(102, 224, 255, 0.5);
+    }
+
+    .nav-links a.primary-link:hover {
+      background: #9ae6ff;
+      transform: translateY(-1px) translateX(0);
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3.2fr) minmax(0, 2.3fr);
+      gap: 26px;
+      margin-top: 28px;
+      margin-bottom: 40px;
+    }
+
+    .hero-main {
+      padding: 24px 22px 22px;
+      border-radius: 26px;
+      background: radial-gradient(circle at top left, rgba(148, 163, 184, 0.22), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.32), rgba(15, 23, 42, 0.5) 60%);
+      border: 1px solid rgba(148, 163, 184, 0.2);
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 3px 9px 3px 4px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .kicker-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #e0f2fe, #22d3ee);
+      position: relative;
+    }
+
+    .kicker-dot::after {
+      content: "";
+      position: absolute;
+      inset: -4px;
+      border-radius: inherit;
+      border: 1px solid rgba(125, 211, 252, 0.5);
+      opacity: 0.8;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 4vw, 36px);
+      line-height: 1.15;
+      margin-bottom: 10px;
+      text-shadow: 0 10px 35px rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-highlight {
+      background: linear-gradient(90deg, #e0f2fe, #7dd3fc, #a5b4fc);
+      -webkit-background-clip: text;
+      color: transparent;
+      font-weight: 700;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 16px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 13px;
+      cursor: pointer;
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text);
+      transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: #02131f;
+      border-color: transparent;
+      font-weight: 600;
+      box-shadow: 0 9px 30px rgba(56, 189, 248, 0.65);
+    }
+
+    .btn.primary:hover {
+      background: #9ae6ff;
+      transform: translateY(-1px);
+    }
+
+    .btn.secondary {
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    .btn.secondary:hover {
+      border-color: rgba(148, 163, 184, 0.8);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .hero-footnote {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .hero-footnote strong {
+      color: #e5e7eb;
+    }
+
+    .hero-side {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .info-card {
+      border-radius: 18px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      padding: 14px 14px 12px;
+      box-shadow: var(--shadow-subtle);
+    }
+
+    .info-card h2 {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .pill {
+      padding: 4px 8px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      white-space: nowrap;
+    }
+
+    .info-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 8px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .info-list div span {
+      display: block;
+    }
+
+    .info-list div span:first-child {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #64748b;
+    }
+
+    .info-list div span:last-child {
+      font-weight: 500;
+      color: #e5e7eb;
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 40px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .section-header h2 {
+      font-size: 18px;
+    }
+
+    .section-header p {
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 360px;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 14px;
+    }
+
+    .skill-card {
+      background: rgba(15, 23, 42, 0.95);
+      border-radius: 16px;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      padding: 12px 13px 11px;
+      font-size: 13px;
+    }
+
+    .skill-card h3 {
+      font-size: 13px;
+      margin-bottom: 6px;
+    }
+
+    .skill-card ul {
+      list-style: none;
+      padding-left: 0;
+      color: var(--muted);
+    }
+
+    .skill-card li::before {
+      content: "• ";
+      color: var(--accent);
+    }
+
+    /* Projects */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.4fr);
+      gap: 16px;
+    }
+
+    .project-card {
+      background: rgba(15, 23, 42, 0.96);
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      padding: 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: var(--shadow-subtle);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast), background var(--transition-fast);
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(15, 23, 42, 0.95);
+      border-color: rgba(148, 163, 184, 0.6);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.14), rgba(15, 23, 42, 0.96));
+    }
+
+    .project-thumb {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.32);
+      background: #020617;
+      aspect-ratio: 16 / 9;
+    }
+
+    .project-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease-out;
+    }
+
+    .project-card:hover .project-thumb img {
+      transform: scale(1.03);
+    }
+
+    .project-label {
+      position: absolute;
+      left: 10px;
+      top: 8px;
+      padding: 3px 8px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--muted);
+    }
+
+    .project-body h3 {
+      font-size: 14px;
+      margin-bottom: 3px;
+    }
+
+    .project-meta {
+      font-size: 11px;
+      color: #9ca3af;
+      margin-bottom: 4px;
+    }
+
+    .project-body p {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-size: 11px;
+      margin-top: 2px;
+    }
+
+    .project-tags span {
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.98);
+      color: #cbd5f5;
+    }
+
+    .project-footer {
+      margin-top: auto;
+      font-size: 11px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--muted);
+    }
+
+    .project-footer a {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 11px;
+      color: #e5e7eb;
+      background: rgba(15, 23, 42, 0.9);
+      transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .project-footer a:hover {
+      border-color: var(--accent);
+      background: rgba(15, 23, 42, 1);
+      transform: translateY(-1px);
+    }
+
+    /* Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 10px;
+    }
+
+    .gallery-item {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      background: rgba(15, 23, 42, 0.98);
+      cursor: zoom-in;
+      position: relative;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease-out, opacity 0.2s ease-out;
+      opacity: 0.96;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.04);
+      opacity: 1;
+    }
+
+    .gallery-caption {
+      position: absolute;
+      left: 8px;
+      bottom: 6px;
+      padding: 3px 7px;
+      font-size: 11px;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--muted);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    /* About / Text Block */
+    .about-card {
+      background: rgba(15, 23, 42, 0.97);
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      padding: 14px;
+      box-shadow: var(--shadow-subtle);
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .about-card p + p {
+      margin-top: 6px;
+    }
+
+    /* Contact */
+    .contact-card {
+      background: rgba(15, 23, 42, 0.98);
+      border-radius: 18px;
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      padding: 14px;
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .contact-row a {
+      padding: 5px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      background: rgba(15, 23, 42, 0.96);
+      color: #e5e7eb;
+      transition: border-color var(--transition-fast), transform var(--transition-fast), background var(--transition-fast);
+    }
+
+    .contact-row a:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+      background: rgba(15, 23, 42, 1);
+    }
+
+    footer {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0 16px 20px;
+      font-size: 11px;
+      color: #6b7280;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    /* Responsive */
+    @media (max-width: 840px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-side {
+        order: -1;
+      }
+
+      .projects-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+
+      main {
+        padding-inline: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="nav-left">
+      <div class="avatar">
+        <!-- Optional: replace with <img src="your-photo.jpg" alt="Sepideh portrait" /> -->
+        SB
+      </div>
+      <div class="brand-text">
+        <span>Sepideh Barzegar</span>
+        <span>GIS &amp; Geo-Data Specialist</span>
+      </div>
+    </div>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact" class="primary-link">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero" aria-label="Intro">
+    <div class="hero-main">
+      <div class="hero-kicker">
+        <div class="kicker-dot"></div>
+        <span>Spatial data, maps &amp; cities</span>
+      </div>
+      <h1>
+        Geo-Data Specialist turning <span class="hero-highlight">urban questions</span>
+        into spatial insight.
+      </h1>
+      <p class="hero-subtitle">
+        I work with GIS, spatial analysis, and map design to support
+        urban planning, environmental studies, and data-driven decision-making.
+      </p>
+
+      <div class="hero-meta">
+        <span>📍 Based in Sweden</span>
+        <span>🗺️ GIS, mapping &amp; visualization</span>
+        <span>🏙️ Urban &amp; environmental projects</span>
+      </div>
+
+      <div class="hero-actions">
+        <a href="Sepideh_Barzegar_CV.pdf" class="btn primary" target="_blank" rel="noreferrer">
+          Download CV
+        </a>
+        <a href="#projects" class="btn secondary">
+          View projects
+        </a>
+        <a href="mailto:your.email@example.com" class="btn secondary">
+          Email me
+        </a>
+      </div>
+
+      <p class="hero-footnote">
+        Currently open to roles such as <strong>GIS Analyst, Geo-Data Specialist, Spatial Planner</strong>.
+      </p>
+    </div>
+
+    <aside class="hero-side" aria-label="Quick profile">
+      <div class="info-card">
+        <h2>Profile</h2>
+        <div class="info-list">
+          <div>
+            <span>Role</span>
+            <span>GIS &amp; Geo-Data Specialist</span>
+          </div>
+          <div>
+            <span>Focus</span>
+            <span>Spatial analysis &amp; mapping</span>
+          </div>
+          <div>
+            <span>Location</span>
+            <span>Sweden (relocation / remote)</span>
+          </div>
+          <div>
+            <span>Languages</span>
+            <span>English, Swedish, Persian</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-card">
+        <h2>Core tools</h2>
+        <div class="pill-row">
+          <span class="pill">ArcGIS Pro</span>
+          <span class="pill">QGIS</span>
+          <span class="pill">FME</span>
+          <span class="pill">Excel &amp; Google Sheets</span>
+          <span class="pill">Python</span>
+          <span class="pill">SQL</span>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" aria-label="About me">
+    <div class="section-header">
+      <h2>About</h2>
+      <p>
+        I enjoy working with spatial datasets, building clear maps, and
+        connecting data to real-world questions in cities, transport, and the environment.
+      </p>
+    </div>
+    <div class="about-card">
+      <p>
+        I am a GIS &amp; Geo-Data Specialist with hands-on experience in spatial data
+        processing, thematic mapping, and spatial analysis using ArcGIS Pro and QGIS. My work covers
+        urban development, accessibility studies, environmental mapping, and suitability analysis. :contentReference[oaicite:1]{index=1}
+      </p>
+      <p>
+        I am detail-oriented and research-driven, comfortable working with
+        different data formats and coordinate systems, and I aim to design
+        maps that communicate clearly to planners, researchers, and decision-makers. :contentReference[oaicite:2]{index=2}
+      </p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" aria-label="Skills and tools">
+    <div class="section-header">
+      <h2>Skills &amp; Tools</h2>
+      <p>
+        A mix of GIS software, spatial analysis, and data skills used across
+        the projects in this portfolio.
+      </p>
+    </div>
+    <div class="skills-grid">
+      <article class="skill-card">
+        <h3>GIS tools</h3>
+        <ul>
+          <li>ArcGIS Pro, ArcGIS Online</li>
+          <li>QGIS (analysis, layout, plugins)</li>
+          <li>GIS file formats, projections, layers</li>
+          <li>Basic FME for data workflows</li>
+        </ul>
+      </article>
+
+      <article class="skill-card">
+        <h3>Data &amp; analysis</h3>
+        <ul>
+          <li>Data cleaning in Excel &amp; Sheets</li>
+          <li>Thematic &amp; density mapping</li>
+          <li>Buffer, overlay &amp; suitability analysis</li>
+          <li>Temporal &amp; comparative mapping</li>
+        </ul>
+      </article>
+
+      <article class="skill-card">
+        <h3>Programming</h3>
+        <ul>
+          <li>Python for basic GIS &amp; data tasks</li>
+          <li>SQL for querying spatial tables</li>
+          <li>C# (introductory level)</li>
+        </ul>
+      </article>
+
+      <article class="skill-card">
+        <h3>Professional strengths</h3>
+        <ul>
+          <li>Detail-oriented and organized</li>
+          <li>Research-driven and curious</li>
+          <li>Reliable and structured workflow</li>
+          <li>Clear cartographic communication</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <!-- FEATURED PROJECTS -->
+  <section id="projects" aria-label="Featured projects">
+    <div class="section-header">
+      <h2>Selected Projects</h2>
+      <p>
+        A selection of GIS projects focused on urban planning, accessibility,
+        environmental mapping, and suitability analysis. :contentReference[oaicite:3]{index=3}
+      </p>
+    </div>
+
+    <div class="projects-grid">
+      <!-- Project 1 -->
+      <article class="project-card">
+        <div class="project-thumb">
+          <span class="project-label">Suitability · Urban</span>
+          <img src="projects/retail-site.jpg" alt="Retail site selection map" />
+        </div>
+        <div class="project-body">
+          <h3>Retail Site Selection – Charlottesville, USA</h3>
+          <div class="project-meta">Location-suitability analysis · Schools &amp; property values :contentReference[oaicite:4]{index=4}</div>
+          <p>
+            Used school locations, property value data, and street networks to
+            identify suitable zones for kid-focused and luxury retail. Combined
+            proximity buffers with neighborhood characteristics to support
+            evidence-based site planning.
+          </p>
+          <div class="project-tags">
+            <span>ArcGIS Pro</span>
+            <span>Suitability</span>
+            <span>Buffers</span>
+            <span>Urban planning</span>
+          </div>
+        </div>
+        <div class="project-footer">
+          <span>Problem → method → candidate zones</span>
+          <a href="#gallery">View map</a>
+        </div>
+      </article>
+
+      <!-- Project 2 -->
+      <article class="project-card">
+        <div class="project-thumb">
+          <span class="project-label">Accessibility</span>
+          <img src="projects/swimming-facility.jpg" alt="Youth population and swimming facility analysis" />
+        </div>
+        <div class="project-body">
+          <h3>Public Swimming Facility – Youth Population Analysis</h3>
+          <div class="project-meta">Population-based planning · Örebro, Sweden :contentReference[oaicite:5]{index=5}</div>
+          <p>
+            Compared a manual estimation of youth around sports facilities with
+            a statistical buffer method summing exact youth counts in a 1 km
+            radius, to recommend candidate areas for a new swimming hall.
+          </p>
+          <div class="project-tags">
+            <span>QGIS</span>
+            <span>Population data</span>
+            <span>Buffers</span>
+            <span>Urban services</span>
+          </div>
+        </div>
+        <div class="project-footer">
+          <span>Two methods, one decision support map</span>
+          <a href="#gallery">View map</a>
+        </div>
+      </article>
+
+      <!-- Project 3 -->
+      <article class="project-card">
+        <div class="project-thumb">
+          <span class="project-label">Environment</span>
+          <img src="projects/lake-skating.jpg" alt="Lake suitability for long-distance ice skating" />
+        </div>
+        <div class="project-body">
+          <h3>Lake Suitability for Ice Skating – Örebro Region</h3>
+          <div class="project-meta">Event planning &amp; safety mapping :contentReference[oaicite:6]{index=6}</div>
+          <p>
+            Identified lakes suitable for long-distance skating within a certain
+            distance of urban areas, and highlighted safety risks near inflow
+            and outflow points, combining hydrological data with accessibility
+            constraints.
+          </p>
+          <div class="project-tags">
+            <span>ArcGIS Pro</span>
+            <span>Hydrology</span>
+            <span>Suitability</span>
+            <span>Risk communication</span>
+          </div>
+        </div>
+        <div class="project-footer">
+          <span>Recreation, safety &amp; distances</span>
+          <a href="#gallery">View map</a>
+        </div>
+      </article>
+
+      <!-- Project 4 -->
+      <article class="project-card">
+        <div class="project-thumb">
+          <span class="project-label">Environment · Risk</span>
+          <img src="projects/wildfire.jpg" alt="Two-day wildfire burn area analysis map" />
+        </div>
+        <div class="project-body">
+          <h3>Two-Day Wildfire Burn Area Analysis</h3>
+          <div class="project-meta">Spread, land cover, and water buffers :contentReference[oaicite:7]{index=7}</div>
+          <p>
+            Mapped the spread of a wildfire over two days, showing forest and
+            shrubland areas affected and buffering nearby water bodies to
+            understand risk and potential protection zones.
+          </p>
+          <div class="project-tags">
+            <span>Overlay analysis</span>
+            <span>Land cover</span>
+            <span>Environmental impact</span>
+          </div>
+        </div>
+        <div class="project-footer">
+          <span>Day 1 vs Day 2 comparative map</span>
+          <a href="#gallery">View map</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" aria-label="Map gallery">
+    <div class="section-header">
+      <h2>Map Gallery</h2>
+      <p>
+        A wider set of cartographic outputs from urban, environmental, and
+        historical GIS projects. :contentReference[oaicite:8]{index=8}
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+      <figure class="gallery-item">
+        <img src="gallery/building-timeline.jpg" alt="Urban development timeline in Stockholm" />
+        <figcaption class="gallery-caption">Urban development timeline – Stockholm</figcaption>
+      </figure>
+
+      <figure class="gallery-item">
+        <img src="gallery/building-height.jpg" alt="Building height distribution in Stockholm" />
+        <figcaption class="gallery-caption">Building height distribution</figcaption>
+      </figure>
+
+      <figure class="gallery-item">
+        <img src="gallery/land-use.jpg" alt="Land use classification in Stockholm" />
+        <figcaption class="gallery-caption">Land-use classification</figcaption>
+      </figure>
+
+      <figure class="gallery-item">
+        <img src="gallery/density-heatmap.jpg" alt="Building density heatmap for Stockholm" />
+        <figcaption class="gallery-caption">Building density heatmap</figcaption>
+      </figure>
+
+      <figure class="gallery-item">
+        <img src="gallery/multi-density.jpg" alt="Multi-category urban density hotspots" />
+        <figcaption class="gallery-caption">Multi-category density hotspots</figcaption>
+      </figure>
+
+      <figure class="gallery-item">
+        <img src="gallery/recycling-stations.jpg" alt="Planned recycling stations map" />
+        <figcaption class="gallery-caption">Recycling stations – Östergötland</figcaption>
+      </figure>
+
+      <figure class="gallery-item">
+        <img src="gallery/bathing-lakes.jpg" alt="Bathing lakes accessibility map" />
+        <figcaption class="gallery-caption">Bathing lakes accessibility</figcaption>
+      </figure>
+
+      <figure class="gallery-item">
+        <img src="gallery/groundwater-wells.jpg" alt="Groundwater wells analysis map" />
+        <figcaption class="gallery-caption">Groundwater wells – Uppsala</figcaption>
+      </figure>
+
+      <figure class="gallery-item">
+        <img src="gallery/archaeology-viking.jpg" alt="Viking archaeological sites in Norway" />
+        <figcaption class="gallery-caption">Viking archaeological sites – Norway</figcaption>
+      </figure>
+
+      <figure class="gallery-item">
+        <img src="gallery/water-usage.jpg" alt="Water usage per municipality map" />
+        <figcaption class="gallery-caption">Water usage per municipality</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" aria-label="Contact">
+    <div class="section-header">
+      <h2>Contact</h2>
+      <p>
+        For roles, collaborations, or freelance projects related to GIS and
+        spatial analysis, feel free to reach out.
+      </p>
+    </div>
+
+    <div class="contact-card">
+      <div>
+        I’m open to opportunities as a GIS Analyst, Geo-Data Specialist, or related
+        roles in Sweden and beyond. I also welcome project-based collaborations.
+      </div>
+      <div class="contact-row">
+        <a href="mailto:your.email@example.com">📧 Email</a>
+        <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">🔗 LinkedIn</a>
+        <a href="https://github.com/" target="_blank" rel="noreferrer">💻 GitHub</a>
+        <a href="Sepideh_Barzegar_Portfolio.pdf" target="_blank" rel="noreferrer">📄 Full PDF portfolio</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <span>© <span id="year"></span> Sepideh Barzegar</span>
+  <span>Designed for GIS &amp; spatial analysis work</span>
+</footer>
+
+<script>
+  // Set current year in footer
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
