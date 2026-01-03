@@ -2,228 +2,810 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Sepideh Barzegar | GIS Portfolio</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sepideh Barzegar | GIS Portfolio</title>
   <meta name="description" content="GIS & Geo-Data Specialist portfolio – spatial analysis and cartographic projects." />
 
   <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Lightbox (thumbnail -> poster) -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
-    * { box-sizing: border-box; }
+    :root{
+      --bg-0:#020617;
+      --bg-1:#071227;
+      --card: rgba(255,255,255,0.04);
+      --card-2: rgba(255,255,255,0.06);
+      --border: rgba(255,255,255,0.10);
+      --border-2: rgba(255,255,255,0.14);
+      --text: rgba(255,255,255,0.90);
+      --muted: rgba(255,255,255,0.62);
+      --muted2: rgba(255,255,255,0.50);
+      --shadow: 0 18px 48px rgba(0,0,0,0.45);
+      --shadow2: 0 10px 26px rgba(0,0,0,0.35);
+      --radius: 18px;
+      --radius2: 14px;
+      --max: 1150px;
+      --accent: rgba(99,102,241,0.9); /* indigo-ish */
+      --accent2: rgba(34,211,238,0.85); /* cyan-ish */
+    }
 
+    *{ box-sizing:border-box; }
+    html, body { height:100%; }
     body{
       margin:0;
-      font-family:'Inter', sans-serif;
-      background: radial-gradient(circle at top, #0f172a, #020617);
-      color:#e5e7eb;
-      line-height:1.6;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(1200px 600px at 50% -10%, rgba(99,102,241,0.20), transparent 60%),
+        radial-gradient(900px 500px at 80% 10%, rgba(34,211,238,0.12), transparent 55%),
+        radial-gradient(900px 700px at 20% 10%, rgba(56,189,248,0.10), transparent 60%),
+        linear-gradient(180deg, var(--bg-1), var(--bg-0));
     }
 
-    .container{
-      max-width:1200px;
-      margin:0 auto;
-      padding:0 20px 40px;
+    a{ color: inherit; text-decoration:none; }
+    img{ max-width:100%; display:block; }
+
+    /* Layout */
+    .wrap{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 26px 18px 70px;
     }
 
-    /* Hero (simple, readable, professional) */
-    .hero{
-      text-align:center;
-      padding:56px 20px 34px;
+    /* Top Nav */
+    .nav{
+      position: sticky;
+      top: 10px;
+      z-index: 50;
+      margin: 10px 0 16px;
+    }
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 14px;
+      padding: 12px 14px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(2,6,23,0.62);
+      backdrop-filter: blur(10px);
+      border-radius: 999px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.30);
     }
 
-    .hero h1{
-      margin:0 0 10px;
-      font-size:34px;
-      font-weight:600;
-      color:#ffffff;
+    .brand{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      min-width: 220px;
     }
-
-    .hero .subtitle{
-      font-size:15px;
-      color:rgba(255,255,255,0.78);
-      margin-bottom:12px;
-    }
-
-    .hero .description{
-      font-size:14px;
-      max-width:720px;
-      margin:0 auto;
-      color:rgba(255,255,255,0.62);
-    }
-
-    /* Section */
-    h2{
-      font-size:20px;
-      font-weight:600;
-      margin:0 0 8px;
-      color:#ffffff;
-    }
-
-    .section-desc{
-      font-size:13px;
-      color:rgba(255,255,255,0.55);
-      margin:0 0 28px;
-    }
-
-    /* Gallery */
-    .gallery{
+    .avatar{
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
       display:grid;
-      grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
-      gap:28px;
+      place-items:center;
+      font-weight:700;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      color: rgba(255,255,255,0.92);
+      background: radial-gradient(circle at 30% 20%, rgba(99,102,241,0.55), rgba(34,211,238,0.18));
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .brand-meta{
+      display:flex;
+      flex-direction:column;
+      line-height: 1.15;
+    }
+    .brand-name{
+      font-weight:600;
+      font-size: 13px;
+      letter-spacing: 0.2px;
+    }
+    .brand-role{
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .nav-links{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .pill{
+      font-size: 12px;
+      padding: 9px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.03);
+      color: rgba(255,255,255,0.82);
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      white-space:nowrap;
+    }
+    .pill:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.18);
+    }
+    .pill.primary{
+      border-color: rgba(99,102,241,0.30);
+      background: rgba(99,102,241,0.14);
+    }
+    .pill.primary:hover{
+      background: rgba(99,102,241,0.18);
+      border-color: rgba(99,102,241,0.40);
+    }
+
+    /* Hero */
+    .hero{
+      padding: 38px 4px 20px;
+      text-align:center;
+    }
+    .hero h1{
+      margin: 0 0 10px;
+      font-size: 38px;
+      letter-spacing: -0.6px;
+      font-weight: 700;
+    }
+    .hero .sub{
+      margin: 0 auto 12px;
+      max-width: 820px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .hero .tagline{
+      margin: 0 auto;
+      max-width: 780px;
+      font-size: 13px;
+      color: rgba(255,255,255,0.58);
+    }
+
+    /* Quick actions under hero */
+    .actions{
+      display:flex;
+      gap: 10px;
+      justify-content:center;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    /* Section headings */
+    .section{
+      margin-top: 34px;
+    }
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 18px;
+      margin-bottom: 14px;
+    }
+    .section-title{
+      display:flex;
+      flex-direction:column;
+      gap: 4px;
+    }
+    .section-title h2{
+      margin:0;
+      font-size: 18px;
+      font-weight: 650;
+      letter-spacing: -0.2px;
+    }
+    .section-title p{
+      margin:0;
+      font-size: 13px;
+      color: var(--muted2);
+      max-width: 720px;
+    }
+    .divider{
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+      margin: 18px 0 22px;
+    }
+
+    /* Category blocks */
+    .cat{
+      margin-top: 26px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .cat:first-of-type{
+      border-top:none;
+      padding-top: 0;
+      margin-top: 0;
+    }
+    .cat-row{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    .cat h3{
+      margin:0;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.78);
+    }
+    .cat .hint{
+      margin:0;
+      font-size: 12px;
+      color: rgba(255,255,255,0.48);
+    }
+
+    /* Grid cards */
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+    @media (max-width: 1050px){
+      .grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .brand{ min-width:auto; }
+    }
+    @media (max-width: 780px){
+      .grid{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .hero h1{ font-size: 30px; }
+      .nav-inner{ border-radius: 18px; }
+    }
+    @media (max-width: 480px){
+      .grid{ grid-template-columns: 1fr; }
+      .nav-inner{ flex-direction:column; align-items:flex-start; }
+      .nav-links{ justify-content:flex-start; }
     }
 
     .card{
-      background:rgba(255,255,255,0.04);
-      border:1px solid rgba(255,255,255,0.08);
-      border-radius:14px;
+      position: relative;
+      border-radius: var(--radius2);
+      background: var(--card);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow2);
       overflow:hidden;
-      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
-      display:flex;                 /* fixes uneven/empty card height */
-      flex-direction:column;        /* fixes uneven/empty card height */
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
     }
-
     .card:hover{
-      transform:translateY(-4px);
-      box-shadow:0 14px 36px rgba(0,0,0,0.35);
-      border-color:rgba(255,255,255,0.16);
+      transform: translateY(-3px);
+      border-color: rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.055);
     }
 
-    .card a{
-      display:block;
+    .thumb{
+      position: relative;
+      overflow:hidden;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.02);
     }
-
-    .card img{
+    .thumb img{
       width:100%;
-      height:190px;                 /* consistent thumbnails */
-      object-fit:cover;             /* no stretching */
-      display:block;
+      height: 170px;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: transform .25s ease;
+    }
+    .card:hover .thumb img{
+      transform: scale(1.06);
     }
 
-    .card-title{
-      padding:12px 14px 14px;
-      font-size:13px;
-      font-weight:500;
-      color:#f9fafb;
+    /* subtle frame inside thumb */
+    .thumb::after{
+      content:"";
+      position:absolute;
+      inset: 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.10);
+      pointer-events:none;
+    }
+
+    .meta{
+      padding: 12px 12px 12px;
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+      min-height: 112px;
+    }
+    .title{
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: -0.1px;
+      line-height: 1.25;
+      margin: 0;
+    }
+    .subline{
+      font-size: 12px;
+      color: rgba(255,255,255,0.56);
+      margin: 0;
+    }
+
+    .tags{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 8px;
+      margin-top: auto;
+    }
+    .tag{
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.03);
+      color: rgba(255,255,255,0.70);
+      white-space:nowrap;
+    }
+
+    /* A small "open" icon */
+    .open{
+      position:absolute;
+      top: 10px;
+      right: 10px;
+      width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      display:grid;
+      place-items:center;
+      background: rgba(2,6,23,0.55);
+      border: 1px solid rgba(255,255,255,0.16);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 10px 22px rgba(0,0,0,0.35);
+    }
+    .open svg{ opacity: 0.9; }
+
+    /* Modal (poster view) */
+    .modal{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index: 100;
+      background: rgba(0,0,0,0.62);
+      backdrop-filter: blur(6px);
+      padding: 18px;
+    }
+    .modal.show{ display:flex; }
+
+    .dialog{
+      width: min(1100px, 96vw);
+      max-height: 92vh;
+      border-radius: 18px;
+      overflow:hidden;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(2,6,23,0.80);
+      box-shadow: var(--shadow);
+      display:flex;
+      flex-direction:column;
+    }
+
+    .dialog-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.03);
+    }
+    .dialog-title{
+      display:flex;
+      flex-direction:column;
+      gap: 2px;
+      min-width: 0;
+    }
+    .dialog-title strong{
+      font-size: 13px;
+      font-weight: 650;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .dialog-title span{
+      font-size: 12px;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .dialog-actions{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      flex-shrink:0;
+    }
+    .btn{
+      font-size: 12px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.04);
+      color: rgba(255,255,255,0.84);
+      cursor:pointer;
+    }
+    .btn:hover{
+      background: rgba(255,255,255,0.06);
+      border-color: rgba(255,255,255,0.20);
+    }
+    .btn.primary{
+      border-color: rgba(99,102,241,0.32);
+      background: rgba(99,102,241,0.16);
+    }
+    .btn.primary:hover{
+      background: rgba(99,102,241,0.20);
+      border-color: rgba(99,102,241,0.42);
+    }
+
+    .dialog-body{
+      overflow:auto;
+      padding: 16px;
+    }
+    .poster{
+      width: 100%;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.02);
     }
 
     /* Footer */
     footer{
-      margin-top:70px;
-      padding-top:26px;
-      border-top:1px solid rgba(255,255,255,0.08);
+      margin-top: 44px;
+      padding-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.08);
       text-align:center;
-      font-size:12px;
-      color:rgba(255,255,255,0.55);
-    }
-
-    /* Lightbox image (optional polish) */
-    .lb-image{
-      border-radius:12px !important;
+      font-size: 12px;
+      color: rgba(255,255,255,0.50);
     }
   </style>
 </head>
 
 <body>
+  <!-- Sticky Nav -->
+  <div class="wrap nav" role="navigation" aria-label="Main">
+    <div class="nav-inner">
+      <div class="brand">
+        <div class="avatar" aria-hidden="true">SB</div>
+        <div class="brand-meta">
+          <div class="brand-name">Sepideh Barzegar</div>
+          <div class="brand-role">GIS & Geo-Data Specialist</div>
+        </div>
+      </div>
 
-  <!-- Header / Intro -->
-  <section class="hero">
-    <h1>Sepideh Barzegar</h1>
-    <div class="subtitle">GIS & Geo-Data Specialist · Spatial Analysis & Cartography</div>
-    <p class="description">
-      GIS-based spatial analysis and cartographic visualization for urban and environmental decision-making.
-    </p>
-  </section>
-
-  <div class="container">
-
-    <!-- Map Gallery -->
-    <h2>Selected GIS Posters</h2>
-<p>A curated selection of GIS posters and spatial analysis projects.</p>
-
-    <div class="gallery">
-
-      <figure class="card">
-        <a href="gallery/wildfire-damage/poster.png" data-lightbox="maps" data-title="Wildfire Damage Analysis – Canada">
-          <img src="gallery/wildfire-damage/thumb.png" alt="Wildfire Damage Analysis – Canada">
-        </a>
-        <figcaption class="card-title">Wildfire Damage Analysis – Canada</figcaption>
-      </figure>
-
-      <figure class="card">
-        <a href="gallery/linkoping-vs-norrkoping/poster.png" data-lightbox="maps" data-title="Green Accessibility – Linköping vs Norrköping">
-          <img src="gallery/linkoping-vs-norrkoping/thumb.png" alt="Green Accessibility – Linköping vs Norrköping">
-        </a>
-        <figcaption class="card-title">Green Accessibility – Linköping vs Norrköping</figcaption>
-      </figure>
-
-      <figure class="card">
-        <a href="gallery/population-distribution/poster.png" data-lightbox="maps" data-title="Population Distribution – Stockholm County">
-          <img src="gallery/population-distribution/thumb.png" alt="Population Distribution – Stockholm County">
-        </a>
-        <figcaption class="card-title">Population Distribution – Stockholm County</figcaption>
-      </figure>
-
-      <figure class="card">
-        <a href="gallery/green-accessibility-linkoping/poster.png" data-lightbox="maps" data-title="Green Space Accessibility – Linköping">
-          <img src="gallery/green-accessibility-linkoping/thumb.png" alt="Green Space Accessibility – Linköping">
-        </a>
-        <figcaption class="card-title">Green Space Accessibility – Linköping</figcaption>
-      </figure>
-
-      <figure class="card">
-        <a href="gallery/wildlife-accidents/poster.png" data-lightbox="maps" data-title="Wildlife Accident Hotspots – Järfälla">
-          <img src="gallery/wildlife-accidents/thumb.png" alt="Wildlife Accident Hotspots – Järfälla">
-        </a>
-        <figcaption class="card-title">Wildlife Accident Hotspots – Järfälla</figcaption>
-      </figure>
-
-      <figure class="card">
-        <a href="gallery/fire-station-distribution/poster.png" data-lightbox="maps" data-title="Fire Station Distribution – Stockholm">
-          <img src="gallery/fire-station-distribution/thumb.png" alt="Fire Station Distribution – Stockholm">
-        </a>
-        <figcaption class="card-title">Fire Station Distribution – Stockholm</figcaption>
-      </figure>
-
-      <figure class="card">
-        <a href="gallery/urban-growth-landuse/poster.png" data-lightbox="maps" data-title="Urban Growth, Density & Land Use – Stockholm">
-          <img src="gallery/urban-growth-landuse/thumb.png" alt="Urban Growth, Density & Land Use – Stockholm">
-        </a>
-        <figcaption class="card-title">Urban Growth, Density & Land Use – Stockholm</figcaption>
-      </figure>
-
-      <figure class="card">
-        <a href="gallery/location-based-marketing/poster.png" data-lightbox="maps" data-title="Location-Based Marketing – Örebro">
-          <img src="gallery/location-based-marketing/thumb.png" alt="Location-Based Marketing – Örebro">
-        </a>
-        <figcaption class="card-title">Location-Based Marketing – Örebro</figcaption>
-      </figure>
-
+      <div class="nav-links">
+        <a class="pill" href="#gallery">Projects</a>
+        <a class="pill" href="#contact">Contact</a>
+        <!-- CV: update file name if needed -->
+        <a class="pill primary" href="Sepideh_Barzegar_CV.pdf" target="_blank" rel="noopener">CV</a>
+      </div>
     </div>
+  </div>
 
-    <footer>
-      © 2026 Sepideh Barzegar · GIS & Spatial Analysis Portfolio
-    </footer>
+  <main class="wrap">
+    <!-- Hero -->
+    <section class="hero">
+      <h1>Sepideh Barzegar</h1>
+      <p class="sub">GIS & Geo-Data Specialist · Spatial Analysis & Cartography</p>
+      <p class="tagline">
+        GIS-based spatial analysis and cartographic visualization for urban and environmental decision-making.
+      </p>
 
+      <div class="actions" id="contact">
+        <!-- Update these links -->
+        <a class="pill primary" href="mailto:YOUR_EMAIL_HERE">Email</a>
+        <a class="pill" href="https://www.linkedin.com/in/YOUR_LINKEDIN" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="pill" href="https://github.com/septab" target="_blank" rel="noopener">GitHub</a>
+        <a class="pill" href="Sepideh_Barzegar_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+      </div>
+    </section>
+
+    <!-- Gallery -->
+    <section class="section" id="gallery">
+      <div class="section-head">
+        <div class="section-title">
+          <h2>Selected GIS Posters</h2>
+          <p>A curated selection of GIS posters and spatial analysis projects. Click a thumbnail to view the full poster.</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- CATEGORY 1 -->
+      <div class="cat">
+        <div class="cat-row">
+          <h3>Accessibility & Equity</h3>
+          <p class="hint">Walkability, proximity, and spatial equity insights.</p>
+        </div>
+
+        <div class="grid">
+          <!-- Green Accessibility – Linköping vs Norrköping -->
+          <article class="card"
+            data-title="Green Accessibility – Linköping vs Norrköping"
+            data-poster="gallery/linkoping-vs-norrkoping/poster.png"
+            data-sub="QGIS · OSM · Accessibility">
+            <div class="thumb">
+              <img src="gallery/linkoping-vs-norrkoping/thumb.png" alt="Green Accessibility – Linköping vs Norrköping thumbnail">
+              <div class="open" aria-hidden="true" title="Open poster">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M10 14a4 4 0 1 1 0-8a4 4 0 0 1 0 8Z" stroke="white" stroke-width="2" opacity="0.9"/>
+                  <path d="M21 21l-5.2-5.2" stroke="white" stroke-width="2" opacity="0.9"/>
+                </svg>
+              </div>
+            </div>
+            <div class="meta">
+              <p class="title">Green Accessibility – Linköping vs Norrköping</p>
+              <p class="subline">Nearest access + comparison</p>
+              <div class="tags">
+                <span class="tag">QGIS</span><span class="tag">OSM</span><span class="tag">Accessibility</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Green Space Accessibility – Linköping -->
+          <article class="card"
+            data-title="Green Space Accessibility – Linköping"
+            data-poster="gallery/green-accessibility-linkoping/poster.png"
+            data-sub="QGIS · Buffers · Urban">
+            <div class="thumb">
+              <img src="gallery/green-accessibility-linkoping/thumb.png" alt="Green Space Accessibility – Linköping thumbnail">
+              <div class="open" aria-hidden="true" title="Open poster">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M10 14a4 4 0 1 1 0-8a4 4 0 0 1 0 8Z" stroke="white" stroke-width="2" opacity="0.9"/>
+                  <path d="M21 21l-5.2-5.2" stroke="white" stroke-width="2" opacity="0.9"/>
+                </svg>
+              </div>
+            </div>
+            <div class="meta">
+              <p class="title">Green Space Accessibility – Linköping</p>
+              <p class="subline">Distance-to-park analysis</p>
+              <div class="tags">
+                <span class="tag">QGIS</span><span class="tag">Buffers</span><span class="tag">Urban</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- CATEGORY 2 -->
+      <div class="cat">
+        <div class="cat-row">
+          <h3>Urban & Regional Analysis</h3>
+          <p class="hint">Urban structure, services, and regional patterns.</p>
+        </div>
+
+        <div class="grid">
+          <!-- Population Distribution – Stockholm County -->
+          <article class="card"
+            data-title="Population Distribution – Stockholm County"
+            data-poster="gallery/population-distribution/poster.png"
+            data-sub="ArcGIS Pro · Thematic · Demography">
+            <div class="thumb">
+              <img src="gallery/population-distribution/thumb.png" alt="Population Distribution – Stockholm County thumbnail">
+              <div class="open" aria-hidden="true" title="Open poster">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M10 14a4 4 0 1 1 0-8a4 4 0 0 1 0 8Z" stroke="white" stroke-width="2" opacity="0.9"/>
+                  <path d="M21 21l-5.2-5.2" stroke="white" stroke-width="2" opacity="0.9"/>
+                </svg>
+              </div>
+            </div>
+            <div class="meta">
+              <p class="title">Population Distribution – Stockholm County</p>
+              <p class="subline">Thematic mapping & patterns</p>
+              <div class="tags">
+                <span class="tag">ArcGIS Pro</span><span class="tag">Thematic</span><span class="tag">Demography</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Fire Station Distribution – Stockholm -->
+          <article class="card"
+            data-title="Fire Station Distribution – Stockholm"
+            data-poster="gallery/fire-station-distribution/poster.png"
+            data-sub="QGIS · Services · Buffers">
+            <div class="thumb">
+              <img src="gallery/fire-station-distribution/thumb.png" alt="Fire Station Distribution – Stockholm thumbnail">
+              <div class="open" aria-hidden="true" title="Open poster">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M10 14a4 4 0 1 1 0-8a4 4 0 0 1 0 8Z" stroke="white" stroke-width="2" opacity="0.9"/>
+                  <path d="M21 21l-5.2-5.2" stroke="white" stroke-width="2" opacity="0.9"/>
+                </svg>
+              </div>
+            </div>
+            <div class="meta">
+              <p class="title">Fire Station Distribution – Stockholm</p>
+              <p class="subline">Coverage & accessibility</p>
+              <div class="tags">
+                <span class="tag">QGIS</span><span class="tag">Services</span><span class="tag">Buffers</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Urban Growth & Land Use – Stockholm -->
+          <article class="card"
+            data-title="Urban Growth & Land Use – Stockholm"
+            data-poster="gallery/urban-growth-landuse/poster.png"
+            data-sub="ArcGIS Pro · Urban · Density">
+            <div class="thumb">
+              <img src="gallery/urban-growth-landuse/thumb.png" alt="Urban Growth & Land Use – Stockholm thumbnail">
+              <div class="open" aria-hidden="true" title="Open poster">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M10 14a4 4 0 1 1 0-8a4 4 0 0 1 0 8Z" stroke="white" stroke-width="2" opacity="0.9"/>
+                  <path d="M21 21l-5.2-5.2" stroke="white" stroke-width="2" opacity="0.9"/>
+                </svg>
+              </div>
+            </div>
+            <div class="meta">
+              <p class="title">Urban Growth & Land Use – Stockholm</p>
+              <p class="subline">Growth, density & land-use</p>
+              <div class="tags">
+                <span class="tag">ArcGIS Pro</span><span class="tag">Urban</span><span class="tag">Density</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- CATEGORY 3 -->
+      <div class="cat">
+        <div class="cat-row">
+          <h3>Environment & Risk</h3>
+          <p class="hint">Environmental impacts, hotspots, and risk mapping.</p>
+        </div>
+
+        <div class="grid">
+          <!-- Wildfire Damage – Canada -->
+          <article class="card"
+            data-title="Wildfire Damage – Canada"
+            data-poster="gallery/wildfire-damage/poster.png"
+            data-sub="ArcGIS Pro · Risk · Environment">
+            <div class="thumb">
+              <img src="gallery/wildfire-damage/thumb.png" alt="Wildfire Damage – Canada thumbnail">
+              <div class="open" aria-hidden="true" title="Open poster">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M10 14a4 4 0 1 1 0-8a4 4 0 0 1 0 8Z" stroke="white" stroke-width="2" opacity="0.9"/>
+                  <path d="M21 21l-5.2-5.2" stroke="white" stroke-width="2" opacity="0.9"/>
+                </svg>
+              </div>
+            </div>
+            <div class="meta">
+              <p class="title">Wildfire Damage – Canada</p>
+              <p class="subline">Burn extent & proximity risk</p>
+              <div class="tags">
+                <span class="tag">ArcGIS Pro</span><span class="tag">Risk</span><span class="tag">Environment</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Wildlife Accident Hotspots – Järfälla -->
+          <article class="card"
+            data-title="Wildlife Accident Hotspots – Järfälla"
+            data-poster="gallery/wildlife-accidents/poster.png"
+            data-sub="Hotspots · Safety · ArcGIS Pro">
+            <div class="thumb">
+              <img src="gallery/wildlife-accidents/thumb.png" alt="Wildlife Accident Hotspots – Järfälla thumbnail">
+              <div class="open" aria-hidden="true" title="Open poster">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M10 14a4 4 0 1 1 0-8a4 4 0 0 1 0 8Z" stroke="white" stroke-width="2" opacity="0.9"/>
+                  <path d="M21 21l-5.2-5.2" stroke="white" stroke-width="2" opacity="0.9"/>
+                </svg>
+              </div>
+            </div>
+            <div class="meta">
+              <p class="title">Wildlife Accident Hotspots – Järfälla</p>
+              <p class="subline">Hotspot density & patterns</p>
+              <div class="tags">
+                <span class="tag">Hotspots</span><span class="tag">Safety</span><span class="tag">ArcGIS Pro</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- CATEGORY 4 -->
+      <div class="cat">
+        <div class="cat-row">
+          <h3>Applied / Business GIS</h3>
+          <p class="hint">Location intelligence and targeting use-cases.</p>
+        </div>
+
+        <div class="grid">
+          <!-- Location-Based Marketing – Örebro -->
+          <article class="card"
+            data-title="Location-Based Marketing – Örebro"
+            data-poster="gallery/location-based-marketing/poster.png"
+            data-sub="Targeting · Marketing · GIS">
+            <div class="thumb">
+              <img src="gallery/location-based-marketing/thumb.png" alt="Location-Based Marketing – Örebro thumbnail">
+              <div class="open" aria-hidden="true" title="Open poster">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                  <path d="M10 14a4 4 0 1 1 0-8a4 4 0 0 1 0 8Z" stroke="white" stroke-width="2" opacity="0.9"/>
+                  <path d="M21 21l-5.2-5.2" stroke="white" stroke-width="2" opacity="0.9"/>
+                </svg>
+              </div>
+            </div>
+            <div class="meta">
+              <p class="title">Location-Based Marketing – Örebro</p>
+              <p class="subline">Prioritization & targeting</p>
+              <div class="tags">
+                <span class="tag">Marketing</span><span class="tag">Targeting</span><span class="tag">GIS</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <footer>
+        © <span id="year"></span> Sepideh Barzegar · GIS & Spatial Analysis Portfolio
+      </footer>
+    </section>
+  </main>
+
+  <!-- Modal -->
+  <div class="modal" id="modal" aria-hidden="true" role="dialog" aria-label="Poster viewer">
+    <div class="dialog" role="document">
+      <div class="dialog-top">
+        <div class="dialog-title">
+          <strong id="modalTitle">Poster</strong>
+          <span id="modalSub">Click outside or press Esc to close</span>
+        </div>
+        <div class="dialog-actions">
+          <a class="btn primary" id="openNewTab" href="#" target="_blank" rel="noopener">Open in new tab</a>
+          <button class="btn" id="closeBtn" type="button">Close</button>
+        </div>
+      </div>
+      <div class="dialog-body">
+        <img class="poster" id="modalImg" alt="Poster preview" src="" />
+      </div>
+    </div>
   </div>
 
   <script>
-    // Optional: Lightbox settings (clean defaults)
-    if (window.lightbox) {
-      lightbox.option({
-        resizeDuration: 180,
-        fadeDuration: 180,
-        imageFadeDuration: 180,
-        wrapAround: true
-      });
-    }
-  </script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
 
+    const modal = document.getElementById("modal");
+    const modalImg = document.getElementById("modalImg");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalSub = document.getElementById("modalSub");
+    const closeBtn = document.getElementById("closeBtn");
+    const openNewTab = document.getElementById("openNewTab");
+
+    function openModal({title, poster, sub}) {
+      modalTitle.textContent = title || "Poster";
+      modalSub.textContent = sub || "";
+      modalImg.src = poster;
+      modalImg.alt = title ? (title + " poster") : "Poster";
+      openNewTab.href = poster;
+      modal.classList.add("show");
+      modal.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeModal() {
+      modal.classList.remove("show");
+      modal.setAttribute("aria-hidden", "true");
+      modalImg.src = "";
+      document.body.style.overflow = "";
+    }
+
+    // Click on any card
+    document.querySelectorAll(".card").forEach(card => {
+      card.addEventListener("click", () => {
+        const title = card.getAttribute("data-title");
+        const poster = card.getAttribute("data-poster");
+        const sub = card.getAttribute("data-sub");
+        if (!poster) return;
+        openModal({ title, poster, sub });
+      });
+    });
+
+    // Close handlers
+    closeBtn.addEventListener("click", closeModal);
+    modal.addEventListener("click", (e) => {
+      // close when clicking backdrop (not the dialog)
+      if (e.target === modal) closeModal();
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("show")) closeModal();
+    });
+  </script>
 </body>
 </html>
-
-
