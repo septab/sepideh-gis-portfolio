@@ -24,6 +24,7 @@
 }
 
     :root{
+      --nav-height: 120px;
       --bg-0:#020617;
       --bg-1:#071227;
       --card: rgba(255,255,255,0.04);
@@ -41,6 +42,10 @@
       --accent: rgba(99,102,241,0.9); /* indigo-ish */
       --accent2: rgba(34,211,238,0.85); /* cyan-ish */
     }
+    
+    #contact {
+  scroll-margin-top: var(--nav-height);
+}
 /* === Gallery thumbnails === */
 
 .gallery-grid{
@@ -529,13 +534,7 @@
         GIS-based spatial analysis and cartographic visualization for urban and environmental decision-making.
       </p>
            
-      <div class="actions" id="contact">
-  <!-- Update these links -->
-  <a class="pill primary" href="mailto:sepidehbarzegarvii@gmail.com">Email</a>
-  <a class="pill" href="https://www.linkedin.com/in/sepideh-b-72ab7439b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-  <a class="pill" href="https://github.com/septab" target="_blank" rel="noopener">GitHub</a>
-  <a class="pill" href="Sepideh_Barzegar_CV.pdf" target="_blank" rel="noopener">Download CV</a>
-</div>
+    <div id="contact"></div>
 
     </section>
 
@@ -851,6 +850,7 @@
   </script>
 </body>
 </html>
+
 
 
 
