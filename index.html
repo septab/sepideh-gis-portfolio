@@ -13,6 +13,16 @@
   #contact { scroll-margin-top: 120px; }
 
   <style>
+    .gallery-item {
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+}
+
     :root{
       --bg-0:#020617;
       --bg-1:#071227;
@@ -841,6 +851,7 @@
   </script>
 </body>
 </html>
+
 
 
 
