@@ -10,21 +10,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  #contact { scroll-margin-top: 120px; }
 
   <style>
-    .gallery-item {
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
-
-.gallery-item:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.45);
-}
-
     :root{
-      --nav-height: 120px;
+      --nav-height: 120px; /* used for anchor offsets */
       --bg-0:#020617;
       --bg-1:#071227;
       --card: rgba(255,255,255,0.04);
@@ -39,46 +28,12 @@
       --radius: 18px;
       --radius2: 14px;
       --max: 1150px;
-      --accent: rgba(99,102,241,0.9); /* indigo-ish */
-      --accent2: rgba(34,211,238,0.85); /* cyan-ish */
+      --accent: rgba(99,102,241,0.9);
+      --accent2: rgba(34,211,238,0.85);
     }
-    
-    #contact {
-  scroll-margin-top: var(--nav-height);
-}
-/* === Gallery thumbnails === */
-
-.gallery-grid{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 28px;
-}
-#contact { scroll-margin-top: 140px; }
-
-.gallery-item{
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: var(--shadow2);
-}
-
-.gallery-item img{
-  width: 100%;
-  height: 260px;        /* 👈 ارتفاع ثابت */
-  object-fit: cover;   /* 👈 کراپ حرفه‌ای */
-  display: block;
-}
-
-.gallery-caption{
-  padding: 12px 14px;
-  font-size: 0.9rem;
-  color: var(--text);
-  line-height: 1.4;
-}
 
     *{ box-sizing:border-box; }
-    html, body { height:100%; }
+    html, body { height:100%; scroll-behavior: smooth; }
     body{
       margin:0;
       font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
@@ -92,6 +47,9 @@
 
     a{ color: inherit; text-decoration:none; }
     img{ max-width:100%; display:block; }
+
+    /* Anchor offset for sticky nav */
+    #gallery, #contact { scroll-margin-top: calc(var(--nav-height) + 24px); }
 
     /* Layout */
     .wrap{
@@ -209,15 +167,6 @@
       color: rgba(255,255,255,0.58);
     }
 
-    /* Quick actions under hero */
-    .actions{
-      display:flex;
-      gap: 10px;
-      justify-content:center;
-      flex-wrap: wrap;
-      margin-top: 18px;
-    }
-
     /* Section headings */
     .section{
       margin-top: 34px;
@@ -312,12 +261,14 @@
       border: 1px solid var(--border);
       box-shadow: var(--shadow2);
       overflow:hidden;
-      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease, box-shadow .18s ease;
+      cursor: pointer; /* hand cursor */
     }
     .card:hover{
       transform: translateY(-3px);
       border-color: rgba(255,255,255,0.18);
       background: rgba(255,255,255,0.055);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.45);
     }
 
     .thumb{
@@ -332,12 +283,12 @@
       object-fit: cover;
       transform: scale(1.02);
       transition: transform .25s ease;
+      cursor: pointer; /* hand cursor */
     }
     .card:hover .thumb img{
       transform: scale(1.06);
     }
 
-    /* subtle frame inside thumb */
     .thumb::after{
       content:"";
       position:absolute;
@@ -383,7 +334,6 @@
       white-space:nowrap;
     }
 
-    /* A small "open" icon */
     .open{
       position:absolute;
       top: 10px;
@@ -397,8 +347,23 @@
       border: 1px solid rgba(255,255,255,0.16);
       backdrop-filter: blur(8px);
       box-shadow: 0 10px 22px rgba(0,0,0,0.35);
+      pointer-events:none;
     }
     .open svg{ opacity: 0.9; }
+
+    /* Contact block */
+    .contact-box{
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.10);
+      box-shadow: var(--shadow2);
+      padding: 16px;
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items:center;
+      justify-content:center;
+    }
 
     /* Modal (poster view) */
     .modal{
@@ -492,7 +457,6 @@
       background: rgba(255,255,255,0.02);
     }
 
-    /* Footer */
     footer{
       margin-top: 44px;
       padding-top: 18px;
@@ -519,7 +483,6 @@
       <div class="nav-links">
         <a class="pill" href="#gallery">Projects</a>
         <a class="pill" href="#contact">Contact</a>
-        <!-- CV: update file name if needed -->
         <a class="pill primary" href="Sepideh_Barzegar_CV.pdf" target="_blank" rel="noopener">CV</a>
       </div>
     </div>
@@ -533,9 +496,6 @@
       <p class="tagline">
         GIS-based spatial analysis and cartographic visualization for urban and environmental decision-making.
       </p>
-           
-    <div id="contact"></div>
-
     </section>
 
     <!-- Gallery -->
@@ -557,14 +517,13 @@
         </div>
 
         <div class="grid">
-          <!-- Green Accessibility – Linköping vs Norrköping -->
           <article class="card"
             data-title="Green Accessibility – Linköping vs Norrköping"
             data-poster="gallery/linkoping-vs-norrkoping/poster.png"
             data-sub="QGIS · OSM · Accessibility">
             <div class="thumb">
               <img src="gallery/linkoping-vs-norrkoping/thumb.png" alt="Green Accessibility – Linköping vs Norrköping thumbnail">
-              <div class="open" aria-hidden="true" title="Open poster">
+              <div class="open" aria-hidden="true">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                   <path d="M10 14a4 4 0 1 1 0-8a4 4 0 0 1 0 8Z" stroke="white" stroke-width="2" opacity="0.9"/>
                   <path d="M21 21l-5.2-5.2" stroke="white" stroke-width="2" opacity="0.9"/>
@@ -580,14 +539,13 @@
             </div>
           </article>
 
-          <!-- Green Space Accessibility – Linköping -->
           <article class="card"
             data-title="Green Space Accessibility – Linköping"
             data-poster="gallery/green-accessibility-linkoping/poster.png"
             data-sub="QGIS · Buffers · Urban">
             <div class="thumb">
               <img src="gallery/green-accessibility-linkoping/thumb.png" alt="Green Space Accessibility – Linköping thumbnail">
-              <div class="open" aria-hidden="true" title="Open poster">
+              <div class="open" aria-hidden="true">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                   <path d="M10 14a4 4 0 1 1 0-8a4 4 0 0 1 0 8Z" stroke="white" stroke-width="2" opacity="0.9"/>
                   <path d="M21 21l-5.2-5.2" stroke="white" stroke-width="2" opacity="0.9"/>
@@ -613,14 +571,13 @@
         </div>
 
         <div class="grid">
-          <!-- Population Distribution – Stockholm County -->
           <article class="card"
             data-title="Population Distribution – Stockholm County"
             data-poster="gallery/population-distribution/poster.png"
             data-sub="ArcGIS Pro · Thematic · Demography">
             <div class="thumb">
               <img src="gallery/population-distribution/thumb.png" alt="Population Distribution – Stockholm County thumbnail">
-              <div class="open" aria-hidden="true" title="Open poster">
+              <div class="open" aria-hidden="true">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                   <path d="M10 14a4 4 0 1 1 0-8a4 4 0 0 1 0 8Z" stroke="white" stroke-width="2" opacity="0.9"/>
                   <path d="M21 21l-5.2-5.2" stroke="white" stroke-width="2" opacity="0.9"/>
@@ -636,14 +593,13 @@
             </div>
           </article>
 
-          <!-- Fire Station Distribution – Stockholm -->
           <article class="card"
             data-title="Fire Station Distribution – Stockholm"
             data-poster="gallery/fire-station-distribution/poster.png"
             data-sub="QGIS · Services · Buffers">
             <div class="thumb">
               <img src="gallery/fire-station-distribution/thumb.png" alt="Fire Station Distribution – Stockholm thumbnail">
-              <div class="open" aria-hidden="true" title="Open poster">
+              <div class="open" aria-hidden="true">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                   <path d="M10 14a4 4 0 1 1 0-8a4 4 0 0 1 0 8Z" stroke="white" stroke-width="2" opacity="0.9"/>
                   <path d="M21 21l-5.2-5.2" stroke="white" stroke-width="2" opacity="0.9"/>
@@ -659,14 +615,13 @@
             </div>
           </article>
 
-          <!-- Urban Growth & Land Use – Stockholm -->
           <article class="card"
             data-title="Urban Growth & Land Use – Stockholm"
             data-poster="gallery/urban-growth-landuse/poster.png"
             data-sub="ArcGIS Pro · Urban · Density">
             <div class="thumb">
               <img src="gallery/urban-growth-landuse/thumb.png" alt="Urban Growth & Land Use – Stockholm thumbnail">
-              <div class="open" aria-hidden="true" title="Open poster">
+              <div class="open" aria-hidden="true">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                   <path d="M10 14a4 4 0 1 1 0-8a4 4 0 0 1 0 8Z" stroke="white" stroke-width="2" opacity="0.9"/>
                   <path d="M21 21l-5.2-5.2" stroke="white" stroke-width="2" opacity="0.9"/>
@@ -692,14 +647,13 @@
         </div>
 
         <div class="grid">
-          <!-- Wildfire Damage – Canada -->
           <article class="card"
             data-title="Wildfire Damage – Canada"
             data-poster="gallery/wildfire-damage/poster.png"
             data-sub="ArcGIS Pro · Risk · Environment">
             <div class="thumb">
               <img src="gallery/wildfire-damage/thumb.png" alt="Wildfire Damage – Canada thumbnail">
-              <div class="open" aria-hidden="true" title="Open poster">
+              <div class="open" aria-hidden="true">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                   <path d="M10 14a4 4 0 1 1 0-8a4 4 0 0 1 0 8Z" stroke="white" stroke-width="2" opacity="0.9"/>
                   <path d="M21 21l-5.2-5.2" stroke="white" stroke-width="2" opacity="0.9"/>
@@ -715,14 +669,13 @@
             </div>
           </article>
 
-          <!-- Wildlife Accident Hotspots – Järfälla -->
           <article class="card"
             data-title="Wildlife Accident Hotspots – Järfälla"
             data-poster="gallery/wildlife-accidents/poster.png"
             data-sub="Hotspots · Safety · ArcGIS Pro">
             <div class="thumb">
               <img src="gallery/wildlife-accidents/thumb.png" alt="Wildlife Accident Hotspots – Järfälla thumbnail">
-              <div class="open" aria-hidden="true" title="Open poster">
+              <div class="open" aria-hidden="true">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                   <path d="M10 14a4 4 0 1 1 0-8a4 4 0 0 1 0 8Z" stroke="white" stroke-width="2" opacity="0.9"/>
                   <path d="M21 21l-5.2-5.2" stroke="white" stroke-width="2" opacity="0.9"/>
@@ -748,14 +701,13 @@
         </div>
 
         <div class="grid">
-          <!-- Location-Based Marketing – Örebro -->
           <article class="card"
             data-title="Location-Based Marketing – Örebro"
             data-poster="gallery/location-based-marketing/poster.png"
             data-sub="Targeting · Marketing · GIS">
             <div class="thumb">
               <img src="gallery/location-based-marketing/thumb.png" alt="Location-Based Marketing – Örebro thumbnail">
-              <div class="open" aria-hidden="true" title="Open poster">
+              <div class="open" aria-hidden="true">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
                   <path d="M10 14a4 4 0 1 1 0-8a4 4 0 0 1 0 8Z" stroke="white" stroke-width="2" opacity="0.9"/>
                   <path d="M21 21l-5.2-5.2" stroke="white" stroke-width="2" opacity="0.9"/>
@@ -777,6 +729,27 @@
         © <span id="year"></span> Sepideh Barzegar · GIS & Spatial Analysis Portfolio
       </footer>
     </section>
+
+    <!-- Contact (REAL SECTION) -->
+    <section class="section" id="contact">
+      <div class="section-head">
+        <div class="section-title">
+          <h2>Contact</h2>
+          <p>For roles, collaborations, or freelance GIS projects, feel free to reach out.</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="contact-box">
+        <!-- Update these links -->
+        <a class="pill primary" href="mailto:sepidehbarzegarwli@gmail.com">Email</a>
+        <a class="pill" href="https://www.linkedin.com/in/sepideh-b-72ab7439b/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="pill" href="https://github.com/septab" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="pill" href="Sepideh_Barzegar_CV.pdf" target="_blank" rel="noopener">Download CV</a>
+      </div>
+    </section>
+
   </main>
 
   <!-- Modal -->
@@ -841,7 +814,6 @@
     // Close handlers
     closeBtn.addEventListener("click", closeModal);
     modal.addEventListener("click", (e) => {
-      // close when clicking backdrop (not the dialog)
       if (e.target === modal) closeModal();
     });
     document.addEventListener("keydown", (e) => {
@@ -850,9 +822,3 @@
   </script>
 </body>
 </html>
-
-
-
-
-
-
