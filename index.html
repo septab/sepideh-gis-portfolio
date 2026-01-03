@@ -31,6 +31,35 @@
       --accent: rgba(99,102,241,0.9); /* indigo-ish */
       --accent2: rgba(34,211,238,0.85); /* cyan-ish */
     }
+/* === Gallery thumbnails === */
+
+.gallery-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 28px;
+}
+
+.gallery-item{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: var(--shadow2);
+}
+
+.gallery-item img{
+  width: 100%;
+  height: 260px;        /* 👈 ارتفاع ثابت */
+  object-fit: cover;   /* 👈 کراپ حرفه‌ای */
+  display: block;
+}
+
+.gallery-caption{
+  padding: 12px 14px;
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.4;
+}
 
     *{ box-sizing:border-box; }
     html, body { height:100%; }
@@ -812,5 +841,6 @@
   </script>
 </body>
 </html>
+
 
 
