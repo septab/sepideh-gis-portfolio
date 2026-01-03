@@ -9,200 +9,195 @@
   <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Lightbox -->
+  <!-- Lightbox (thumbnail -> poster) -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox.min.js"></script>
 
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
+    body{
+      margin:0;
+      font-family:'Inter', sans-serif;
       background: radial-gradient(circle at top, #0f172a, #020617);
-      color: #e5e7eb;
+      color:#e5e7eb;
+      line-height:1.6;
     }
 
-    a {
-      text-decoration: none;
-      color: inherit;
+    .container{
+      max-width:1200px;
+      margin:0 auto;
+      padding:0 20px 80px;
     }
 
-    /* Layout */
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px 80px;
+    /* Hero (simple, readable, professional) */
+    .hero{
+      text-align:center;
+      padding:56px 20px 34px;
     }
 
-    /* Hero */
-    .hero {
-      text-align: center;
-      padding: 60px 20px 40px;
+    .hero h1{
+      margin:0 0 10px;
+      font-size:34px;
+      font-weight:600;
+      color:#ffffff;
     }
 
-    .hero h1 {
-      font-size: 34px;
-      font-weight: 600;
-      margin-bottom: 10px;
+    .hero .subtitle{
+      font-size:15px;
+      color:rgba(255,255,255,0.78);
+      margin-bottom:12px;
     }
 
-    .hero .subtitle {
-      font-size: 15px;
-      color: rgba(255,255,255,0.75);
-      margin-bottom: 14px;
+    .hero .description{
+      font-size:14px;
+      max-width:720px;
+      margin:0 auto;
+      color:rgba(255,255,255,0.62);
     }
 
-    .hero .description {
-      font-size: 14px;
-      max-width: 620px;
-      margin: 0 auto;
-      line-height: 1.6;
-      color: rgba(255,255,255,0.6);
+    /* Section */
+    h2{
+      font-size:20px;
+      font-weight:600;
+      margin:0 0 8px;
+      color:#ffffff;
     }
 
-    /* Section title */
-    h2 {
-      font-size: 20px;
-      font-weight: 500;
-      margin: 60px 0 8px;
-    }
-
-    .section-desc {
-      font-size: 13px;
-      color: rgba(255,255,255,0.55);
-      margin-bottom: 32px;
+    .section-desc{
+      font-size:13px;
+      color:rgba(255,255,255,0.55);
+      margin:0 0 28px;
     }
 
     /* Gallery */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 28px;
+    .gallery{
+      display:grid;
+      grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+      gap:28px;
     }
 
-    .card {
-      background: rgba(255,255,255,0.04);
-      border-radius: 14px;
-      padding: 14px;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    .card{
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:14px;
+      overflow:hidden;
+      transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      display:flex;                 /* fixes uneven/empty card height */
+      flex-direction:column;        /* fixes uneven/empty card height */
     }
 
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+    .card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 14px 36px rgba(0,0,0,0.35);
+      border-color:rgba(255,255,255,0.16);
     }
 
-    .card img {
-      width: 100%;
-      border-radius: 10px;
-      display: block;
+    .card a{
+      display:block;
     }
 
-    .card-title {
-      margin-top: 12px;
-      font-size: 13px;
-      font-weight: 500;
-      color: #f9fafb;
+    .card img{
+      width:100%;
+      height:190px;                 /* consistent thumbnails */
+      object-fit:cover;             /* no stretching */
+      display:block;
+    }
+
+    .card-title{
+      padding:12px 14px 14px;
+      font-size:13px;
+      font-weight:500;
+      color:#f9fafb;
     }
 
     /* Footer */
-    footer {
-      margin-top: 80px;
-      padding-top: 30px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      text-align: center;
-      font-size: 13px;
-      color: rgba(255,255,255,0.6);
+    footer{
+      margin-top:70px;
+      padding-top:26px;
+      border-top:1px solid rgba(255,255,255,0.08);
+      text-align:center;
+      font-size:12px;
+      color:rgba(255,255,255,0.55);
+    }
+
+    /* Lightbox image (optional polish) */
+    .lb-image{
+      border-radius:12px !important;
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Hero -->
+  <!-- Header / Intro -->
   <section class="hero">
     <h1>Sepideh Barzegar</h1>
-    <div class="subtitle">
-      GIS & Geo-Data Specialist · Spatial Analysis · Cartography
-    </div>
+    <div class="subtitle">GIS & Geo-Data Specialist · Spatial Analysis & Cartography</div>
     <p class="description">
-      GIS-based spatial analysis and cartographic visualization for urban,
-      environmental, and spatial decision-making.
+      GIS-based spatial analysis and cartographic visualization for urban and environmental decision-making.
     </p>
   </section>
 
   <div class="container">
 
-    <!-- Gallery -->
+    <!-- Map Gallery -->
     <h2>Map Gallery</h2>
-    <p class="section-desc">
-      A selection of GIS posters and spatial analysis projects.
-    </p>
+    <p class="section-desc">A selection of GIS posters and spatial analysis projects.</p>
 
     <div class="gallery">
 
-      <!-- 1 -->
       <figure class="card">
-        <a href="gallery/wildfire-damage/poster.png" data-lightbox="maps">
+        <a href="gallery/wildfire-damage/poster.png" data-lightbox="maps" data-title="Wildfire Damage Analysis – Canada">
           <img src="gallery/wildfire-damage/thumb.png" alt="Wildfire Damage Analysis – Canada">
         </a>
         <figcaption class="card-title">Wildfire Damage Analysis – Canada</figcaption>
       </figure>
 
-      <!-- 2 -->
       <figure class="card">
-        <a href="gallery/linkoping-vs-norrkoping/poster.png" data-lightbox="maps">
+        <a href="gallery/linkoping-vs-norrkoping/poster.png" data-lightbox="maps" data-title="Green Accessibility – Linköping vs Norrköping">
           <img src="gallery/linkoping-vs-norrkoping/thumb.png" alt="Green Accessibility – Linköping vs Norrköping">
         </a>
         <figcaption class="card-title">Green Accessibility – Linköping vs Norrköping</figcaption>
       </figure>
 
-      <!-- 3 -->
       <figure class="card">
-        <a href="gallery/population-distribution/poster.png" data-lightbox="maps">
+        <a href="gallery/population-distribution/poster.png" data-lightbox="maps" data-title="Population Distribution – Stockholm County">
           <img src="gallery/population-distribution/thumb.png" alt="Population Distribution – Stockholm County">
         </a>
         <figcaption class="card-title">Population Distribution – Stockholm County</figcaption>
       </figure>
 
-      <!-- 4 -->
       <figure class="card">
-        <a href="gallery/green-accessibility-linkoping/poster.png" data-lightbox="maps">
+        <a href="gallery/green-accessibility-linkoping/poster.png" data-lightbox="maps" data-title="Green Space Accessibility – Linköping">
           <img src="gallery/green-accessibility-linkoping/thumb.png" alt="Green Space Accessibility – Linköping">
         </a>
         <figcaption class="card-title">Green Space Accessibility – Linköping</figcaption>
       </figure>
 
-      <!-- 5 -->
       <figure class="card">
-        <a href="gallery/wildlife-accidents/poster.png" data-lightbox="maps">
+        <a href="gallery/wildlife-accidents/poster.png" data-lightbox="maps" data-title="Wildlife Accident Hotspots – Järfälla">
           <img src="gallery/wildlife-accidents/thumb.png" alt="Wildlife Accident Hotspots – Järfälla">
         </a>
         <figcaption class="card-title">Wildlife Accident Hotspots – Järfälla</figcaption>
       </figure>
 
-      <!-- 6 -->
       <figure class="card">
-        <a href="gallery/fire-station-distribution/poster.png" data-lightbox="maps">
+        <a href="gallery/fire-station-distribution/poster.png" data-lightbox="maps" data-title="Fire Station Distribution – Stockholm">
           <img src="gallery/fire-station-distribution/thumb.png" alt="Fire Station Distribution – Stockholm">
         </a>
         <figcaption class="card-title">Fire Station Distribution – Stockholm</figcaption>
       </figure>
 
-      <!-- 7 -->
       <figure class="card">
-        <a href="gallery/urban-growth-landuse/poster.png" data-lightbox="maps">
+        <a href="gallery/urban-growth-landuse/poster.png" data-lightbox="maps" data-title="Urban Growth, Density & Land Use – Stockholm">
           <img src="gallery/urban-growth-landuse/thumb.png" alt="Urban Growth, Density & Land Use – Stockholm">
         </a>
         <figcaption class="card-title">Urban Growth, Density & Land Use – Stockholm</figcaption>
       </figure>
 
-      <!-- 8 -->
       <figure class="card">
-        <a href="gallery/location-based-marketing/poster.png" data-lightbox="maps">
+        <a href="gallery/location-based-marketing/poster.png" data-lightbox="maps" data-title="Location-Based Marketing – Örebro">
           <img src="gallery/location-based-marketing/thumb.png" alt="Location-Based Marketing – Örebro">
         </a>
         <figcaption class="card-title">Location-Based Marketing – Örebro</figcaption>
@@ -210,12 +205,23 @@
 
     </div>
 
-    <!-- Footer -->
     <footer>
       © 2026 Sepideh Barzegar · GIS & Spatial Analysis Portfolio
     </footer>
 
   </div>
+
+  <script>
+    // Optional: Lightbox settings (clean defaults)
+    if (window.lightbox) {
+      lightbox.option({
+        resizeDuration: 180,
+        fadeDuration: 180,
+        imageFadeDuration: 180,
+        wrapAround: true
+      });
+    }
+  </script>
 
 </body>
 </html>
